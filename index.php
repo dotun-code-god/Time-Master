@@ -27,7 +27,7 @@ $staff = new StaffController();
             <h1 class="text-xl font-bold mt-2 leading-6" style="text-shadow:-1px 1px 3px #c7c7c7;">Staff Attendance & <br> Payroll Management</h1>
         </div>
         <div>
-            <h3 id="selected_date" class="text-lg bg-[#212529] text-white px-4 py-3" style="text-shadow:-1px 0px 4px #abaaaa;"></h3>
+            <h3 id="selected_date" class="text-lg bg-yip_black text-white px-4 py-3" style="text-shadow:-1px 0px 4px #abaaaa;"></h3>
         </div>
         <div>
             <input type="date" class="rounded-md" id="select_date">
@@ -35,7 +35,81 @@ $staff = new StaffController();
     </div>
 
     <div class="mt-16">
-        <h1 class="text-lg font-semibold uppercase">Employees</h1>
+        <div class="flex items-center justify-between">
+            <div class="relative">
+                <h1 class="text-xl font-semibold uppercase">Employees</h1>
+                <span class="absolute bg-yip_black w-[2rem] h-[0.2rem]"></span>
+            </div>
+
+            <div class="flex items-center justify-between gap-4">
+                <button class="yip_button shadow-[-1px_1px_5px_#ce2222]" style="background:linear-gradient(45deg, #f53535, #592020)">MARK ALL PRESENT</button>
+                <button class="yip_button shadow-[-1px_1px_5px_#1d7fc1]" style="background:linear-gradient(45deg, #2289ce, #084771)">MARK ALL PRESENT</button>
+            </div>
+        </div>
+
+        <div class="my-8">
+            <table class="table yip_table_layout max-w-full w-full">
+                <tr class="yip_table_layout">
+                    <th class="yip_table_layout p-4">Name</th>
+                    <th class="yip_table_layout p-4">Current Salary (10,000)</th>
+                    <th class="yip_table_layout p-4">Attendance</th>
+                </tr>
+                <tr class="yip_table_layout">
+                    <td class="p-3 flex items-center gap-3">
+                        <span id="pseudo_image" class="yip_staff_pseudo_img bg-blue-200">SJ</span>
+                        Shamma Joy
+                    </td>
+                    <td class="p-3 yip_table_layout text-center">10,000</td>
+                    <td class="p-3 yip_table_layout text-right">
+                        <label for="present1" class="mr-6">
+                            <input type="checkbox" class="yip_attendance" name="present1" id="present1">
+                            Present
+                        </label>
+                        <label for="absent1">
+                            <input type="checkbox" class="yip_attendance" name="absent1" id="absent1">
+                            Absent
+                        </label>
+                    </td>
+                </tr>
+                <tr class="yip_table_layout">
+                    <td class="p-3 flex items-center gap-3">
+                        <span id="pseudo_image" class="yip_staff_pseudo_img bg-red-200">OD</span>
+                        Olaolu David
+                    </td>
+                    <td class="p-3 yip_table_layout text-center">9,950</td>
+                    <td class="p-3 yip_table_layout text-right">
+                        <label for="present2" class="mr-6">
+                            <input type="checkbox" class="yip_attendance" name="present2" id="present2">
+                            Present
+                        </label>
+                        <label for="absent2">
+                            <input type="checkbox" class="yip_attendance" name="absent2" id="absent2">
+                            Absent
+                        </label>
+                    </td>
+                </tr>
+                <tr class="yip_table_layout">
+                    <td class="p-3 flex items-center gap-3">
+                        <span id="pseudo_image" class="yip_staff_pseudo_img bg-green-200">AE</span>
+                        Adeleke Eniola
+                    </td>
+                    <td class="p-3 yip_table_layout text-center">9000</td>
+                    <td class="p-3 yip_table_layout text-right">
+                        <label for="present2" class="mr-6">
+                            <input type="checkbox" class="yip_attendance" name="present2" id="present2">
+                            Present
+                        </label>
+                        <label for="absent2">
+                            <input type="checkbox" class="yip_attendance" name="absent2" id="absent2">
+                            Absent
+                        </label>
+                    </td>                </tr>
+            </table>
+        </div>
+
+        <div class="flex justify-center">
+            <button class="yip_button shadow-[-1px_1px_5px_#87ad22]" style="background:linear-gradient(45deg, #b5d75c, #44590f)">DONE</button>
+        </div>
     </div>
 
     <script src="public/js/app.js"></script>

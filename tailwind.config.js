@@ -8,6 +8,12 @@ module.exports = {
     extend: {
       fontFamily : {
         Poppins : ['Poppins', 'sans-serif']
+      },
+      colors: {
+        yip_black: '#212529',
+        yip_blue: '#2289ce',
+        yip_green: '#b5d75c',
+        yip_red: '#ce2222'
       }
     },
   },

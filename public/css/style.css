@@ -2,3 +2,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .yip_table_layout {
+        @apply border-[#e7e7e7] border-[0.1rem]
+    }
+    .yip_button {
+        @apply font-semibold px-6 py-3 text-white rounded-3xl text-sm
+    }
+    .yip_staff_pseudo_img {
+        @apply text-[#796b6b] font-semibold text-[1.4rem] rounded-full border-[0.1rem] border-[#b9b9b9] w-10 h-10 text-center leading-[2.5rem]
+    }
+    .yip_attendance {
+        @apply cursor-pointer w-6 h-6 mr-1 border-[#bfbfbf] text-black focus:ring-black disabled:border-[#e7e7e7] disabled:cursor-not-allowed
+    }
+}
+
+tr:nth-child(even){
+    background-color: #f3f3f3;
+}
