@@ -5,8 +5,14 @@ module.exports = {
     "./public/**/*.{html,js,php}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily : {
+        Poppins : ['Poppins', 'sans-serif']
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }
 

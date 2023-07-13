@@ -7,6 +7,7 @@
   "description": "A Staff Attendance and Payroll Management software",
   "main": "index.php",
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "any-promise": "^1.3.0",
     "anymatch": "^3.1.3",
     "arg": "^5.0.2",
@@ -23,8 +24,8 @@
     "dlv": "^1.1.3",
     "fast-glob": "^3.3.0",
     "fastq": "^1.15.0",
-    "fs.realpath": "^1.0.0",
     "fill-range": "^7.0.1",
+    "fs.realpath": "^1.0.0",
     "function-bind": "^1.1.1",
     "glob": "^7.1.6",
     "glob-parent": "^6.0.2",
@@ -79,7 +80,7 @@
     "yaml": "^2.3.1"
   },
   "scripts": {
-    "build-css": "npx tailwindcss -i ./public/style.css -o ./dist/output.css --watch"
+    "build-css": "npx tailwindcss -i ./public/css/style.css -o ./dist/output.css --watch"
   },
   "author": "Joseph Oyetunde",
   "license": "ISC"
