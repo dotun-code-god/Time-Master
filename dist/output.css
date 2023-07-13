@@ -605,6 +605,7 @@ select{
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 600;
+  text-transform: uppercase;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -638,12 +639,6 @@ select{
 .yip_attendance:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
-}
-
-.yip_attendance:disabled{
-  cursor: not-allowed;
-  --tw-border-opacity: 1;
-  border-color: rgb(231 231 231 / var(--tw-border-opacity));
 }
 
 *, ::before, ::after{

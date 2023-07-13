@@ -42,13 +42,13 @@ $staff = new StaffController();
             </div>
 
             <div class="flex items-center justify-between gap-4">
-                <button class="yip_button shadow-[-1px_1px_5px_#ce2222]" style="background:linear-gradient(45deg, #f53535, #592020)">MARK ALL PRESENT</button>
-                <button class="yip_button shadow-[-1px_1px_5px_#1d7fc1]" style="background:linear-gradient(45deg, #2289ce, #084771)">MARK ALL PRESENT</button>
+                <button class="yip_button shadow-[-1px_1px_5px_#ce2222]" style="background:linear-gradient(45deg, #f53535, #592020)" onclick="markAll(false)">mark all absent</button>
+                <button class="yip_button shadow-[-1px_1px_5px_#1d7fc1]" style="background:linear-gradient(45deg, #2289ce, #084771)" onclick="markAll(true)">mark all present</button>
             </div>
         </div>
 
         <div class="my-8">
-            <table class="table yip_table_layout max-w-full w-full">
+            <table class="table yip_table_layout max-w-full w-full" id="employees_table">
                 <tr class="yip_table_layout">
                     <th class="yip_table_layout p-4">Name</th>
                     <th class="yip_table_layout p-4">Current Salary (10,000)</th>
@@ -61,12 +61,12 @@ $staff = new StaffController();
                     </td>
                     <td class="p-3 yip_table_layout text-center">10,000</td>
                     <td class="p-3 yip_table_layout text-right">
-                        <label for="present1" class="mr-6">
-                            <input type="checkbox" class="yip_attendance" name="present1" id="present1">
+                        <label for="present1" id="label_present1" class="mr-6">
+                            <input type="checkbox" class="yip_attendance" name="present1" id="present1" onclick="selectAndDeselectAttendance('present1')">
                             Present
                         </label>
-                        <label for="absent1">
-                            <input type="checkbox" class="yip_attendance" name="absent1" id="absent1">
+                        <label for="absent1" id="label_absent1">
+                            <input type="checkbox" class="yip_attendance" name="absent1" id="absent1" onclick="selectAndDeselectAttendance('absent1')">
                             Absent
                         </label>
                     </td>
@@ -78,12 +78,12 @@ $staff = new StaffController();
                     </td>
                     <td class="p-3 yip_table_layout text-center">9,950</td>
                     <td class="p-3 yip_table_layout text-right">
-                        <label for="present2" class="mr-6">
-                            <input type="checkbox" class="yip_attendance" name="present2" id="present2">
+                        <label for="present2" id="label_present2" class="mr-6">
+                            <input type="checkbox" class="yip_attendance" name="present2" id="present2" onclick="selectAndDeselectAttendance('present2')">
                             Present
                         </label>
-                        <label for="absent2">
-                            <input type="checkbox" class="yip_attendance" name="absent2" id="absent2">
+                        <label for="absent2" id="label_absent2">
+                            <input type="checkbox" class="yip_attendance" name="absent2" id="absent2" onclick="selectAndDeselectAttendance('absent2')">
                             Absent
                         </label>
                     </td>
@@ -95,12 +95,12 @@ $staff = new StaffController();
                     </td>
                     <td class="p-3 yip_table_layout text-center">9000</td>
                     <td class="p-3 yip_table_layout text-right">
-                        <label for="present2" class="mr-6">
-                            <input type="checkbox" class="yip_attendance" name="present2" id="present2">
+                        <label for="present3" id="" class="mr-6">
+                            <input type="checkbox" class="yip_attendance" name="present3" id="present3">
                             Present
                         </label>
-                        <label for="absent2">
-                            <input type="checkbox" class="yip_attendance" name="absent2" id="absent2">
+                        <label for="absent3" id="">
+                            <input type="checkbox" class="yip_attendance" name="absent3" id="absent3">
                             Absent
                         </label>
                     </td>                </tr>
@@ -108,7 +108,7 @@ $staff = new StaffController();
         </div>
 
         <div class="flex justify-center">
-            <button class="yip_button shadow-[-1px_1px_5px_#87ad22]" style="background:linear-gradient(45deg, #b5d75c, #44590f)">DONE</button>
+            <button class="yip_button shadow-[-1px_1px_5px_#87ad22]" style="background:linear-gradient(45deg, #b5d75c, #44590f)">done</button>
         </div>
     </div>
 
