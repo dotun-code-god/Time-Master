@@ -2,6 +2,10 @@
 
 require_once 'models/Staff.php';
 
+/**
+ * Staff Controller class controls each staff attendance records as well as payroll.
+ */
+
 class StaffController {
     public $staff;
     private $pay_day = 100;
@@ -12,10 +16,11 @@ class StaffController {
     }
 
     public function markAttendance($post){
-        $id = $this->staff->markStaffAttendance($post);
-        if($post['attendance_status'] === 0){
+        $attendance = $this->staff->markStaffAttendance($post);
+        // print_r($attendance);
+        if($attendance['attendance_status'] == 0){
             // reduce payment if staff be found absent
-            $this->reduceSalaryDueToAbsence($id);
+            $this->reduceSalaryDueToAbsence($attendance['staff_id']);
         }
     }
 
@@ -28,5 +33,3 @@ class StaffController {
     }
 
 }
-
-echo 'test';

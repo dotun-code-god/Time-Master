@@ -1,33 +1,31 @@
 $(function(){
 
-    let selectedDate = selectDate(new Date(), 'yyyy-mm-dd');
-    selectDate(new Date(), 'date_string');
-    $("#select_date").val(selectedDate);
+    let selectedDate = $("#select_date").val();
+    $("#selected_date").text((new Date(selectedDate)).toDateString());
 
     $("#select_date").change(function (e) { 
         e.preventDefault();
-        selectedDate = e.target.value;
-        selectDate(new Date(selectedDate), 'date_string');
-        // also make sure that if check is a previous date hide mark all absent/preesent button
+        changedSelectedDate = e.target.value;
+        // dissallow attendance register in a future date
+        if ((new Date(changedSelectedDate)).getTime() > (new Date()).getTime()) {
+            alert("You cannot mark attendance for the future");
+            e.target.value = selectedDate;
+            return;
+        } 
+
+        let formattedDate =  (new Date(changedSelectedDate)).toDateString();
+        $("#selected_date").text(formattedDate);
+        if ('URLSearchParams' in window) {
+            var searchParams = new URLSearchParams(window.location.search)
+            searchParams.set("date", changedSelectedDate);
+            var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+            history.pushState(null, '', newRelativePathQuery);
+        }
+        window.location.reload();
     });
 
 
 })
-
-function selectDate(date, format){
-    let formattedDate;
-    if(format == 'date_string') {
-        formattedDate = date.toDateString();
-        $("#selected_date").text(formattedDate);
-        return;
-    } else if(format == 'yyyy-mm-dd') {
-        const day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
-        const month = date.getMonth() > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1);
-        const year = date.getFullYear();
-        formattedDate = `${year}-${month}-${day}`;
-        return formattedDate;
-    }
-}
 
 function selectAndDeselectAttendance(id){
     let pair = $(`#${id}`).parents('td').find('label').not(`#label_${id}`);
@@ -53,3 +51,16 @@ function markAll(mode){
         val.checked = false;
     });
 }
+
+(function createPseudoImage(){
+    let collection = $(".pseudo_image");
+    let randColors = ['bg-blue-200', 'bg-red-200', 'bg-green-200', 'bg-orange-200', 'bg-purple-200', 'bg-yellow-200'];
+    let result = [];
+    for(let i = 0; i < collection.length; i++){
+        let name = collection[i].getAttribute("__name").split(' ');
+        collection[i].textContent = `${name[0].charAt(0)}`;     
+        collection[i].textContent += `${name[1].charAt(0)}`;     
+        result.push(randColors[Math.floor(Math.random() * randColors.length)]);
+        collection[i].classList.add(randColors[Math.floor(Math.random() * randColors.length)]);     
+    }
+})()

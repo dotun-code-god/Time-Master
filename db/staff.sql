@@ -35,4 +35,11 @@ ALTER TABLE `staff`
     ADD `salary` INT(11) NOT NULL DEFAULT "10000" AFTER `contact_type`;
 
 INSERT INTO `staff` (`name`, `employee_id`, `address`, `contact`, `contact_type`) VALUES ('Shaman Joy', '10392', 'Ibadan', 'shaman@gmail.com', 1);
+INSERT INTO `staff` (`name`, `employee_id`, `address`, `contact`, `contact_type`) VALUES ('Olaolu David', '10393', 'Lagos', 'olaoludave@gmail.com', 1);
+INSERT INTO `staff` (`name`, `employee_id`, `address`, `contact`, `contact_type`) VALUES ('Adeleke Eniola', '10093', 'Russia', '0890246790', 0);
+INSERT INTO `staff` (`name`, `employee_id`, `address`, `contact`, `contact_type`) VALUES ('Ibrahim Abibat', '11693', 'Calabar', '0132637280', 0);
+INSERT INTO `staff` (`name`, `employee_id`, `address`, `contact`, `contact_type`) VALUES ('Adekalu James', '11693', 'Abuja', 'adekalu2494@gmail.com', 1);
+
+ALTER TABLE `staff` RENAME TO `staffs`;
+ALTER TABLE `staff_attendance` RENAME TO `staffs_attendance`;
 
