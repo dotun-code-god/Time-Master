@@ -34,8 +34,16 @@ if(isset($_GET['date'])){
             </div>
             <h1 class="text-xl font-bold mt-2 leading-6" style="text-shadow:-1px 1px 3px #c7c7c7;">Staff Attendance & <br> Payroll Management</h1>
         </div>
-        <div>
+        <div class="md:block hidden">
             <h3 id="selected_date" class="text-lg bg-yip_black text-white px-4 py-3" style="text-shadow:-1px 0px 4px #abaaaa;"></h3>
+        </div>
+        <div class="md:block hidden">
+            <input type="date" name="date" form="attendance_form" class="rounded-md" id="select_date" value="<?=$_GET['date']?>">
+        </div>
+    </div>
+    <div class="mt-12 md:hidden flex justify-between items-center gap-2">
+        <div>
+            <h3 id="selected_date_mobile" class="sm:text-lg bg-yip_black text-white px-4 py-3" style="text-shadow:-1px 0px 4px #abaaaa;"></h3>
         </div>
         <div>
             <input type="date" name="date" form="attendance_form" class="rounded-md" id="select_date" value="<?=$_GET['date']?>">
@@ -43,8 +51,8 @@ if(isset($_GET['date'])){
     </div>
 
     <form action="manage_attendance.php" method="POST" id="attendance_form">
-        <div class="mt-16">
-            <div class="flex items-center justify-between">
+        <div class="sm:mt-16 mt-8">
+            <div class="sm:flex items-center justify-between">
                 <div class="relative">
                     <h1 class="text-xl font-semibold uppercase">Employees</h1>
                     <span class="absolute bg-yip_black w-[2rem] h-[0.2rem]"></span>
@@ -57,13 +65,13 @@ if(isset($_GET['date'])){
                     <p class="italic"><?=$_SESSION['wrong_access']?></p>
                 <?php } ?>
     
-                <div class="flex items-center justify-between gap-4">
+                <div class="sm:mt-0 mt-8 flex items-center justify-between gap-4">
                     <button type="button" class="yip_button shadow-[-1px_1px_5px_#ce2222] <?= Staff::$fresh_attendance ? 'show' : 'hidden' ?>" style="background:linear-gradient(45deg, #f53535, #592020)" onclick="markAll(false)">mark all absent</button>
                     <button type="button" class="yip_button shadow-[-1px_1px_5px_#1d7fc1] <?= Staff::$fresh_attendance ? 'show' : 'hidden' ?>" style="background:linear-gradient(45deg, #2289ce, #084771)" onclick="markAll(true)">mark all present</button>
                 </div>
             </div>
     
-            <div class="my-8">
+            <div class="sm:my-8 my-4">
                 <table class="table yip_table_layout max-w-full w-full" id="employees_table">
                     <tr class="yip_table_layout">
                         <th class="yip_table_layout p-4">Name</th>
@@ -73,12 +81,12 @@ if(isset($_GET['date'])){
                     <?php if(count($staffs) > 0){
                         foreach($staffs as $staff){ ?>
                             <tr class="yip_table_layout">
-                                <td class="p-3 flex items-center gap-3">
-                                    <span __name="<?=$staff['name']?>" class="yip_staff_pseudo_img pseudo_image"></span>
+                                <td class="p-3 flex items-center gap-3 xs:text-sm">
+                                    <span __name="<?=$staff['name']?>" class="yip_staff_pseudo_img pseudo_image sm:block hidden"></span>
                                     <?=$staff['name']?> 
                                 </td>
-                                <td class="p-3 yip_table_layout text-center"><?=$staff['salary']?></td>
-                                <td class="p-3 yip_table_layout text-right">
+                                <td class="p-3 yip_table_layout text-center xs:text-sm"><?=$staff['salary']?></td>
+                                <td class="p-3 yip_table_layout text-right xs:text-sm">
                                     <label for="present-<?=$staff['id']?>" id="label_present-<?=$staff['id']?>" class="mr-6">
                                         <input type="checkbox" class="yip_attendance" name="present-<?=$staff['id']?>" id="present-<?=$staff['id']?>" 
                                             onclick="selectAndDeselectAttendance('present-<?=$staff['id']?>')" value="1" <?php if(isset($staff['attendance_status']) || isset($staff['expired'])){?> disabled <?php } ?>

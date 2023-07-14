@@ -14,7 +14,11 @@ module.exports = {
         yip_blue: '#2289ce',
         yip_green: '#b5d75c',
         yip_red: '#ce2222'
-      }
+      },
+      screens: {
+        'xs': { max: '500px' },
+        'xxs': { max: '390px' }
+      },
     },
   },
   plugins: [

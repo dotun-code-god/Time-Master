@@ -2,6 +2,7 @@ $(function(){
 
     let selectedDate = $("#select_date").val();
     $("#selected_date").text((new Date(selectedDate)).toDateString());
+    $("#selected_date_mobile").text((new Date(selectedDate)).toDateString());
 
     $("#select_date").change(function (e) { 
         e.preventDefault();
@@ -15,6 +16,7 @@ $(function(){
 
         let formattedDate =  (new Date(changedSelectedDate)).toDateString();
         $("#selected_date").text(formattedDate);
+        $("#selected_date_mobile").text(formattedDate);
         if ('URLSearchParams' in window) {
             var searchParams = new URLSearchParams(window.location.search)
             searchParams.set("date", changedSelectedDate);
