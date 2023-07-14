@@ -1,10 +1,6 @@
 -- Query to create Databse 
 CREATE DATABASE IF NOT EXISTS `time_master`;
 
-----------------------------------------------------------------------
-
--- Table Structure for staff details
-
 CREATE TABLE IF NOT EXISTS `staff` (
     `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(150) NOT NULL, 
@@ -16,10 +12,6 @@ CREATE TABLE IF NOT EXISTS `staff` (
     `time_modified` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT `uk_staff_contact` UNIQUE KEY (`contact`)
 );
-
------------------------------------------------------------------------
-
--- Table Structure for staff attendance
 
 CREATE TABLE IF NOT EXISTS staff_attendance (
 	id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
